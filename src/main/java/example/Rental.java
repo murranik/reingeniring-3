@@ -30,9 +30,9 @@ class Rental {
             return frequentRenterPoint;
         }
 
-        boolean ifCanGetAdditionPoints = days.isPresent() && getDaysRented().compareTo(days.get()) > 0;
+        boolean canGetAdditionPoints = days.isPresent() && getDaysRented().compareTo(days.get()) > 0;
 
-        frequentRenterPoint += ifCanGetAdditionPoints ? 1 : 0;
+        frequentRenterPoint += canGetAdditionPoints ? 1 : 0;
 
         return frequentRenterPoint;
     }

@@ -24,8 +24,7 @@ public class Main {
     public static void main(String[] args) {
         List<Rental> rentals = List.of(new Rental(REMBO, 1),
                 new Rental(LOTR, 4),
-                new Rental(HARRY_POTTER, 5),
-                new Rental(SAW, 8));
+                new Rental(HARRY_POTTER, 5));
 
         String statement = new Customer("John Doe", rentals).statement();
 

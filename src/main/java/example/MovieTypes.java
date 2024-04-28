@@ -4,7 +4,7 @@ public class MovieTypes {
         public static MovieType regular = new MovieType(
                         "Regular",
                         2,
-                        2,
+                        null,
                         2,
                         new AdditionalCharge() {
                                 @Override
@@ -15,7 +15,7 @@ public class MovieTypes {
         public static MovieType new_release = new MovieType(
                         "New Release",
                         0,
-                        0,
+                        1,
                         0,
                         new AdditionalCharge() {
                                 @Override
@@ -26,7 +26,7 @@ public class MovieTypes {
         public static MovieType children = new MovieType(
                         "Children",
                         1.5,
-                        3,
+                        null,
                         3,
                         new AdditionalCharge() {
                                 @Override

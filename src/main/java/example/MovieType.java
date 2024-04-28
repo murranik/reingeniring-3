@@ -1,23 +1,25 @@
 package example;
 
+import java.util.Optional;
+
 interface AdditionalCharge {
     double getAdditionalCharge(double daysRented);
 }
 
 public class MovieType {
     private final String name;
-    private final int daysForfrequentRenterPoint;
+    private final Optional<Integer> daysForFrequentRenterPoint;
     private final int daysForAdditionCharge;
     private AdditionalCharge additionalChargeFunc;
 
     public MovieType(
             String name,
             double price,
-            int daysForfrequentRenterPoint,
+            Integer daysForfrequentRenterPoint,
             int daysForAdditionCharge,
             AdditionalCharge additionalChargeFunc) {
         this.name = name;
-        this.daysForfrequentRenterPoint = daysForfrequentRenterPoint;
+        this.daysForFrequentRenterPoint = Optional.ofNullable(daysForfrequentRenterPoint);
         this.daysForAdditionCharge = daysForAdditionCharge;
         this.additionalChargeFunc = additionalChargeFunc;
     }
@@ -26,8 +28,8 @@ public class MovieType {
         return name;
     }
 
-    public int getDaysForfrequentRenterPoint() {
-        return daysForfrequentRenterPoint;
+    public Optional<Integer> getDaysForFrequentRenterPoint() {
+        return daysForFrequentRenterPoint;
     }
 
     public int getDaysForAdditionCharge() {

@@ -1,8 +1,10 @@
 package example;
 
+import java.util.Optional;
+
 class Rental {
     private final Movie movie;
-    private final int daysRented;
+    private final Integer daysRented;
 
     public Rental(Movie movie, int daysRented) {
         this.movie = movie;
@@ -21,10 +23,18 @@ class Rental {
     }
 
     public int getFrequentRenterPoints() {
-        return getDaysRented() > getMovie().getMovieType().getDaysForfrequentRenterPoint() ? 2 : 1;
+        int frequentRenterPoint = 1;
+
+        if(getMovie().getMovieType().getDaysForFrequentRenterPoint() == null){
+            return frequentRenterPoint;
+        }
+
+         Optional<Integer> days = getMovie().getMovieType().getDaysForFrequentRenterPoint();
+
+        return days.isPresent() && getDaysRented().compareTo(days.get()) > 0 ? 1 : 0;
     }
 
-    public int getDaysRented() {
+    public Integer getDaysRented() {
         return daysRented;
     }
 

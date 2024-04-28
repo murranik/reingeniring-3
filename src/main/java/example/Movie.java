@@ -2,22 +2,24 @@ package example;
 
 public class Movie {
     private final String title;
-    private final MovieType priceCode;
-    public enum MovieType {
-        REGULAR, NEW_RELEASE, CHILDRENS
-    }
+    private final double initialPrice;
+    private final MovieType type;
 
-    public Movie(String title, MovieType priceCode) {
+    public Movie(String title, double pricePerDay, MovieType type) {
         this.title = title;
-        this.priceCode = priceCode;
+        this.initialPrice = pricePerDay;
+        this.type = type;
     }
 
-    public MovieType getPriceCode() {
-        return priceCode;
+    public double getInitialPrice() {
+        return initialPrice;
     }
 
     public String getTitle (){
         return title;
     }
 
+    public MovieType getMovieType (){
+        return type;
+    }
 }
